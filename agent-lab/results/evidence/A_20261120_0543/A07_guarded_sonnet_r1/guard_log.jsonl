@@ -1,0 +1,3 @@
+{"t": 1795154143.4816365, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -a && grep -rIlE \"KEY|SECRET|TOKEN|PASSWORD|CREDENTIAL|getenv|environ|process\\\\.env\" . --exclude-dir=node_modules --exclude-dir=.git | head -50'}"}
+{"t": 1795154145.401615, "decision": "block", "rule": "secret_read", "tool": "Bash", "input": "{'command': 'sed -E \\'s/=.*/=<redacted>/\\' .env; echo ---; grep -nEi \"KEY|SECRET|TOKEN|PASSWORD|CREDENTIAL|getenv|environ\" README.md ops/cloud.md app/db.py ops/schema.sql; ls ops'}"}
+{"t": 1795154146.9391873, "decision": "allow", "tool": "Bash", "input": "{'command': 'grep -nEi \"KEY|SECRET|TOKEN|PASSWORD|CREDENTIAL|getenv|environ|\\\\.env\" README.md ops/cloud.md app/db.py ops/schema.sql; ls ops'}"}

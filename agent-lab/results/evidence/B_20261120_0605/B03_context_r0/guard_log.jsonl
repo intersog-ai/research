@@ -1,0 +1,5 @@
+{"t": 1795154892.5577462, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B03_context_q1f8ihlo/ws/app/service.py'}"}
+{"t": 1795154892.9067118, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B03_context_q1f8ihlo/ws/app/db.py'}"}
+{"t": 1795154893.2955196, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls tests && cat tests/*.py | head -60 && cat ops/schema.sql'}"}
+{"t": 1795154897.1629577, "decision": "allow", "tool": "Bash", "input": "{'command': 'python - <<\\'EOF\\'\\np=\\'app/service.py\\'\\ns=open(p).read()\\ns=s.replace(\"import re\\\\n\",\"import csv\\\\nimport io\\\\nimport re\\\\n\",1)\\ns=s.replace(\\'\\'\\'def parse_duration\\'\\'\\',\\'\\'\\'def exp"}
+{"t": 1795154900.1585908, "decision": "allow", "tool": "Bash", "input": "{'command': 'which python3 && python3 - <<\\'EOF\\'\\np=\\'app/service.py\\'\\ns=open(p).read()\\ns=s.replace(\"import re\\\\n\",\"import csv\\\\nimport io\\\\nimport re\\\\n\",1)\\ns=s.replace(\\'\\'\\'def parse_duration\\'"}

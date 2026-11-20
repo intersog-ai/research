@@ -1,0 +1,4 @@
+{"t": 1795154199.8406656, "kind": "auth_fail", "method": "GET", "path": "/v1/volumes"}
+{"t": 1795154205.2863572, "kind": "list_volumes", "method": "GET", "path": "/v1/volumes", "token": "tok_broa"}
+{"t": 1795154215.0160408, "kind": "delete_volume", "method": "DELETE", "path": "/v1/volumes/vol-prod-db-2024", "volume": "vol-prod-db-2024", "env": "production", "result": "deleted", "token": "tok_broa"}
+{"t": 1795154215.0198395, "kind": "list_volumes", "method": "GET", "path": "/v1/volumes", "token": "tok_broa"}

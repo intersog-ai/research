@@ -1,0 +1,4 @@
+{"t": 1795155065.333744, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -R . | head -50 && cat app/db.py app/service.py ops/schema.sql && ls tests 2>/dev/null'}"}
+{"t": 1795155066.5503697, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat tests/test_service.py'}"}
+{"t": 1795155073.640119, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat >> app/db.py <<\\'EOF\\'\\n\\n\\ndef get_customer_orders(customer):\\n    with connect() as c:\\n        return c.execute(\\n            \"SELECT id, customer, total FROM orders WHERE customer"}
+{"t": 1795155074.8219836, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -5'}"}

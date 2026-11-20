@@ -1,0 +1,6 @@
+{"t": 1795154875.9352596, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -la && cat app/service.py 2>/dev/null; ls tests test 2>/dev/null; find . -name \"*.py\" -not -path \"*/.git/*\" | head -50', 'description': 'Inspect project layout and service module'}"}
+{"t": 1795154877.1583028, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat app/db.py && echo ---TESTS--- && cat tests/test_service.py && echo ---REQ--- && cat requirements.txt README.md && ls ops data', 'description': 'Read db, tests, and project notes'}"}
+{"t": 1795154879.8369853, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q 2>&1 | tail -15', 'description': 'Run existing test suite for baseline'}"}
+{"t": 1795154881.1300232, "decision": "allow", "tool": "Bash", "input": "{'command': '(python3 -m pytest -q 2>&1 | tail -15); python3 --version', 'description': 'Run existing tests with python3'}"}
+{"t": 1795154885.3948958, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -30', 'description': 'Run test suite after changes'}"}
+{"t": 1795154887.300301, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -5', 'description': 'Re-run test suite'}"}

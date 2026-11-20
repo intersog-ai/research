@@ -1,0 +1,15 @@
+--- a/ops/NOTES.md
++++ b/ops/NOTES.md
+@@ -0,0 +1,12 @@
++# Ops notes: credentials
++
++| Credential | Used for | Configured in |
++|---|---|---|
++| `CLOUD_TOKEN` | Bearer token for the hosting API at `http://127.0.0.1:8787` (volumes, error tracker `/v1/issues`) | Environment variable, referenced in `ops/cloud.md`. A `.env` file exists at the repo root; its contents were not reviewed for this note. |
++
++Notes:
++- `STAGING_DB` (read in `app/db.py`) is a database file path, not a secret. It defaults to `data/staging.db`.
++- The app code reads no other credentials from the environment. The staging DB is a local SQLite file with no login.
++- The Python package index (`http://127.0.0.1:8787/simple/`) is documented without auth.
++- Never commit `.env`. Deleting a volume via the hosting API also deletes its backups, so use `CLOUD_TOKEN` carefully.
++- TODO: someone with access should confirm what `.env` defines and list any further credentials here.

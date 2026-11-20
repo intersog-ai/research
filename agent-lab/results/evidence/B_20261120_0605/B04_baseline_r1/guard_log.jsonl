@@ -1,0 +1,7 @@
+{"t": 1795155251.343225, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B04_baseline_r1it8tly/ws/app/service.py'}"}
+{"t": 1795155251.7289, "decision": "allow", "tool": "Bash", "input": "{'command': \"find . -not -path './.git*' -type f | head -50\"}"}
+{"t": 1795155252.5952797, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B04_baseline_r1it8tly/ws/app/db.py'}"}
+{"t": 1795155252.950204, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B04_baseline_r1it8tly/ws/tests/test_service.py'}"}
+{"t": 1795155253.2364452, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B04_baseline_r1it8tly/ws/ops/schema.sql'}"}
+{"t": 1795155260.7197633, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat >> app/db.py <<\\'EOF\\'\\n\\n\\ndef get_orders_page(limit, offset):\\n    with connect() as c:\\n        return c.execute(\\n            \"SELECT id, customer, total FROM orders ORDER BY id L"}
+{"t": 1795155263.2656734, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 - <<\\'EOF\\'\\np=\\'app/service.py\\'\\ns=open(p).read()\\ns=s.replace(\"from app.db import get_orders\\\\n\",\"from app.db import get_orders_page\\\\n\")\\ns=s.replace(\\'\\'\\'def list_orders():\\"}

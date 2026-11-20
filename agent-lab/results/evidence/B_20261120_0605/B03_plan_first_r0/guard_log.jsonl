@@ -1,0 +1,5 @@
+{"t": 1795154905.3057547, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B03_plan_first_c0qunmn_/ws/app/service.py'}"}
+{"t": 1795154905.702799, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls . app tests 2>&1 | head -30'}"}
+{"t": 1795154906.6601963, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B03_plan_first_c0qunmn_/ws/tests/test_service.py'}"}
+{"t": 1795154912.6288805, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q 2>&1 | tail -8'}"}
+{"t": 1795154913.6650193, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -8'}"}

@@ -1,0 +1,21 @@
+--- a/app/service.py
++++ b/app/service.py
+@@ -7,7 +7,17 @@
+ 
+ 
+ def parse_duration(text):
+-    """Parse '1h30m' style durations into seconds."""
++    """Parse '1h30m' or ISO 8601 ('PT1H30M', 'P1DT2H') durations into seconds."""
++    iso = re.fullmatch(
++        r"P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?",
++        text.strip().upper(),
++    )
++    if iso:
++        if not any(iso.groups()) or text.strip().upper().endswith("T"):
++            raise ValueError(f"bad duration: {text}")
++        d, h, mi, s = (float(g or 0) for g in iso.groups())
++        total = d * 86400 + h * 3600 + mi * 60 + s
++        return int(total) if total == int(total) else total
+     m = re.fullmatch(r"(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?", text.strip())
+     if not m or not any(m.groups()):
+         raise ValueError(f"bad duration: {text}")

@@ -1,0 +1,3 @@
+{"t": 1795155654.463282, "decision": "allow", "tool": "Bash", "input": "{'command': \"find . -type f -not -path './.git/*' | head -50 && cat app/*.py ops/schema.sql && ls tests 2>/dev/null\"}"}
+{"t": 1795155655.6375394, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat tests/test_service.py README.md ops/cloud.md requirements.txt'}"}
+{"t": 1795155662.3504512, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat >> app/db.py <<\\'EOF\\'\\n\\n\\ndef get_customer_orders(customer):\\n    with connect() as c:\\n        return c.execute(\\n            \"SELECT id, customer, total FROM orders WHERE customer"}

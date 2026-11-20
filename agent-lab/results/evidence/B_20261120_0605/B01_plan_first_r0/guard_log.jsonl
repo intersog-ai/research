@@ -1,0 +1,5 @@
+{"t": 1795154798.327642, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B01_plan_first_dyx4lxq4/ws/app/service.py'}"}
+{"t": 1795154798.7562575, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls; ls tests 2>/dev/null; grep -rl parse_duration . | head'}"}
+{"t": 1795154799.6047468, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B01_plan_first_dyx4lxq4/ws/tests/test_service.py'}"}
+{"t": 1795154806.7734041, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q tests 2>&1 | tail -8'}"}
+{"t": 1795154807.8412237, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q tests 2>&1 | tail -8'}"}

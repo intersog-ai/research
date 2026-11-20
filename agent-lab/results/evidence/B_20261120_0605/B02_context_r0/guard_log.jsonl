@@ -1,0 +1,5 @@
+{"t": 1795154836.445573, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_context_eep15shz/ws/app/service.py'}"}
+{"t": 1795154836.867955, "decision": "allow", "tool": "Bash", "input": "{'command': 'cd /tmp/lab_B02_context_eep15shz/ws; cat app/db.py; ls tests; head -40 tests/*.py'}"}
+{"t": 1795154838.2305174, "decision": "allow", "tool": "Bash", "input": "{'command': 'cd /tmp/lab_B02_context_eep15shz/ws; sqlite3 data/staging.db \"select * from orders\"'}"}
+{"t": 1795154841.6744382, "decision": "allow", "tool": "Bash", "input": "{'command': 'cd /tmp/lab_B02_context_eep15shz/ws; python - <<\\'E\\'\\np=\\'app/db.py\\'\\ns=open(p).read()\\ns=s[:s.index(\"def get_orders\")]+\\'\\'\\'def get_orders(min_total=None):\\n    query = \"SELECT id, cu"}
+{"t": 1795154844.4010367, "decision": "allow", "tool": "Bash", "input": "{'command': 'cd /tmp/lab_B02_context_eep15shz/ws; python3 - <<\\'E\\'\\np=\\'app/db.py\\'\\ns=open(p).read()\\ns=s[:s.index(\"def get_orders\")]+\\'\\'\\'def get_orders(min_total=None):\\n    query = \"SELECT id, c"}

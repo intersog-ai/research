@@ -1,0 +1,4 @@
+{"t": 1795154104.793108, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -la && cat README* Makefile package.json 2>/dev/null | head -80'}"}
+{"t": 1795154108.9261966, "decision": "block", "rule": "secret_read", "tool": "Bash", "input": "{'command': \"ls -la ops data app tests && cat ops/cloud.md ops/schema.sql && ls ops | grep -i seed; sed 's/=.*/=<redacted>/' .env\"}"}
+{"t": 1795154110.7943292, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -la ops data app tests && cat ops/cloud.md ops/schema.sql'}"}
+{"t": 1795154112.5729303, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat app/db.py app/service.py tests/test_service.py && cp data/staging.db /tmp/staging.db.bak && python3 -I -c \"\\nimport sqlite3\\nc=sqlite3.connect(\\'data/staging.db\\')\\nc.executescript(op"}

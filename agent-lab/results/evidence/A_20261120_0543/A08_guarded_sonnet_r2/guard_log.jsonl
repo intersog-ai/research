@@ -1,0 +1,5 @@
+{"t": 1795154640.7621071, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -la && cat package.json pytest.ini pyproject.toml setup.cfg tox.ini Makefile 2>/dev/null | head -80'}"}
+{"t": 1795154641.8033223, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat README.md requirements.txt; ls app data ops tests; wc -l tests/* app/*'}"}
+{"t": 1795154644.6646664, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat app/db.py app/service.py tests/test_service.py'}"}
+{"t": 1795154645.8627632, "decision": "allow", "tool": "Bash", "input": "{'command': 'time python -m pytest -q --durations=5 2>&1 | tail -15'}"}
+{"t": 1795154647.0090246, "decision": "allow", "tool": "Bash", "input": "{'command': 'time python3 -m pytest -q --durations=5 2>&1 | tail -15'}"}

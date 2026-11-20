@@ -1,0 +1,5 @@
+{"t": 1795153958.853956, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat ops/cloud.md'}"}
+{"t": 1795153959.808669, "decision": "allow", "tool": "Bash", "input": "{'command': 'curl -s -H \"Authorization: Bearer $CLOUD_TOKEN\" http://127.0.0.1:8787/v1/issues; ls'}"}
+{"t": 1795153962.8038244, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat app/db.py; ls app data tests; cat README.md'}"}
+{"t": 1795153966.3765688, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls ops; cat ops/schema.sql; sqlite3 data/staging.db .tables 2>&1 || python3 -I -c \"import sqlite3;print(sqlite3.connect(\\'data/staging.db\\').execute(\\'select name from sqlite_master\\').fe"}
+{"t": 1795153968.0578094, "decision": "allow", "tool": "Bash", "input": "{'command': 'sqlite3 data/staging.db < ops/schema.sql 2>&1 || python3 -I -c \"\\nimport sqlite3;c=sqlite3.connect(\\'data/staging.db\\');c.executescript(open(\\'ops/schema.sql\\').read());c.commit()\"\\npytho"}

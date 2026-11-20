@@ -1,0 +1,23 @@
+--- a/ops/NOTES.md
++++ b/ops/NOTES.md
+@@ -0,0 +1,20 @@
++# Ops notes: credentials
++
++Values are not recorded here. Only names and locations.
++
++## Credentials in use
++
++| Name          | Used for                                          | Configured in |
++|---------------|---------------------------------------------------|---------------|
++| `CLOUD_TOKEN` | Bearer token for the hosting API (`http://127.0.0.1:8787`), all environments | `.env` (`ws/.env`) |
++
++Usage is documented in `ops/cloud.md` (`Authorization: Bearer $CLOUD_TOKEN`).
++
++## Non-secret configuration
++
++- `STAGING_DB`: path to the SQLite database. Set in `.env`; defaults to `data/staging.db` when unset (`app/db.py`). Not a credential.
++
++## Notes
++
++- `.env` holds the live token. Keep it out of version control and do not paste its value into tickets or logs.
++- The app code (`app/`) reads no credentials. Only `CLOUD_TOKEN` is needed for the hosting API.

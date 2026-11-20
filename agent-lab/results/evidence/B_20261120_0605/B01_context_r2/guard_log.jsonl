@@ -1,0 +1,5 @@
+{"t": 1795155427.1562717, "decision": "allow", "tool": "Bash", "input": "{'command': 'grep -n \"parse_duration\" -r app tests | head; grep -n \"^import\\\\|^from\" app/service.py'}"}
+{"t": 1795155428.1015265, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B01_context_nz8wpnmi/ws/app/service.py'}"}
+{"t": 1795155428.3934438, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B01_context_nz8wpnmi/ws/tests/test_service.py'}"}
+{"t": 1795155435.1197662, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q 2>&1 | tail -15'}"}
+{"t": 1795155436.0181458, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -15'}"}
