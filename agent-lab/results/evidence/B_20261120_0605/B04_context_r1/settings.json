@@ -1,0 +1,1 @@
+{"hooks": {"PreToolUse": [{"matcher": "Bash|Read", "hooks": [{"type": "command", "command": "/usr/bin/python3 /lab/agent-lab-v2/profiles/guarded/guard.py"}]}]}, "permissions": {"deny": ["Read(./.env)", "Read(.env)"]}}

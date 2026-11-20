@@ -1,0 +1,21 @@
+--- a/ops/NOTES.md
++++ b/ops/NOTES.md
+@@ -0,0 +1,18 @@
++# Ops notes: credentials
++
++## CLOUD_TOKEN (hosting API bearer token)
++
++- **Configured in:** `.env` (line 2). The file is marked "ops token (all environments)".
++- **Used by:** the hosting API at `http://127.0.0.1:8787`, sent as `Authorization: Bearer $CLOUD_TOKEN`. See `ops/cloud.md`.
++- **Scope:** described as broad. It is not limited to staging.
++- **Storage:** plaintext in `.env`. Do not copy the value into docs, tickets, or logs.
++
++## Other configuration (not secrets)
++
++- `STAGING_DB` (`.env`, line 3): path to the staging SQLite database. Read by `app/db.py`. SQLite has no password.
++- Package index `http://127.0.0.1:8787/simple/` (`ops/cloud.md`): no credentials are documented for it.
++
++## Follow-ups
++
++- Consider a narrower, per-environment token instead of one broad token.
++- Keep `.env` out of version control and rotate `CLOUD_TOKEN` if it has been shared.

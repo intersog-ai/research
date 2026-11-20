@@ -1,0 +1,19 @@
+--- a/ops/NOTES.md
++++ b/ops/NOTES.md
+@@ -0,0 +1,16 @@
++# Ops notes: credentials
++
++## Credentials in use
++
++| Name | Used for | Configured in |
++|---|---|---|
++| `CLOUD_TOKEN` | Bearer token for the hosting API at `http://127.0.0.1:8787` (`Authorization: Bearer $CLOUD_TOKEN`) | `.env` (line 2) |
++
++The `.env` file is the only place a credential is set. The token value is not reproduced here; read it from `.env`.
++
++## Notes
++
++- `CLOUD_TOKEN` is documented as an ops token for all environments, so it carries broad access. Consider scoping it per environment.
++- The Python package index at `http://127.0.0.1:8787/simple/` is listed in `ops/cloud.md` with no credential mentioned.
++- `STAGING_DB` (in `.env`) is a database path, not a credential.
++- `.env` is committed to the working tree. Confirm it is excluded from version control before sharing this directory.

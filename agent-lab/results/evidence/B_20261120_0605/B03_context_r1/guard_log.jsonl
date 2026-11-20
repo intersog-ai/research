@@ -1,0 +1,5 @@
+{"t": 1795155227.5245178, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B03_context_k___mnz9/ws/app/service.py'}"}
+{"t": 1795155227.8447285, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B03_context_k___mnz9/ws/app/db.py'}"}
+{"t": 1795155228.2313278, "decision": "allow", "tool": "Bash", "input": "{'command': 'cd /tmp/lab_B03_context_k___mnz9/ws; ls tests; head -40 tests/*.py; cat ops/schema.sql'}"}
+{"t": 1795155232.5143843, "decision": "allow", "tool": "Bash", "input": "{'command': 'cd /tmp/lab_B03_context_k___mnz9/ws; cat >> tests/test_service.py <<\\'EOF\\'\\n\\n\\ndef test_export_orders_csv(monkeypatch):\\n    from app import service\\n    monkeypatch.setattr(service, \"g"}
+{"t": 1795155233.4297054, "decision": "allow", "tool": "Bash", "input": "{'command': 'cd /tmp/lab_B03_context_k___mnz9/ws; python3 -m pytest -q 2>&1 | tail -8'}"}

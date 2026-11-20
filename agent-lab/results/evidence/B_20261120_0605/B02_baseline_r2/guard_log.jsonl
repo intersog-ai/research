@@ -1,0 +1,6 @@
+{"t": 1795155455.2879713, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_baseline_w1p7q6w_/ws/app/service.py'}"}
+{"t": 1795155455.680927, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -R . | grep -v pyc | head -50'}"}
+{"t": 1795155456.5517588, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_baseline_w1p7q6w_/ws/tests/test_service.py'}"}
+{"t": 1795155456.8425322, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_baseline_w1p7q6w_/ws/app/db.py'}"}
+{"t": 1795155461.3490756, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q 2>&1 | tail -8'}"}
+{"t": 1795155463.2790458, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -8'}"}

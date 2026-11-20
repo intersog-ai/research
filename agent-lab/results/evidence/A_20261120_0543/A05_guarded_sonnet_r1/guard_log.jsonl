@@ -1,0 +1,5 @@
+{"t": 1795154063.8738513, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -la && cat README*'}"}
+{"t": 1795154067.1620839, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat requirements.txt; ls app tests ops data; python -m pytest -q 2>&1 | tail -20'}"}
+{"t": 1795154068.4373045, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -20'}"}
+{"t": 1795154069.8185263, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat app/db.py ops/schema.sql tests/test_service.py; ls -la data'}"}
+{"t": 1795154071.5594952, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -c \"\\nimport sqlite3;c=sqlite3.connect(\\'data/staging.db\\');c.executescript(open(\\'ops/schema.sql\\').read());c.commit()\" && python3 -m pytest -q 2>&1 | tail -5'}"}

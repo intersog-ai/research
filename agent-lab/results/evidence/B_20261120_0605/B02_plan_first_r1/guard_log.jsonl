@@ -1,0 +1,5 @@
+{"t": 1795155187.7571504, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_plan_first_dsnjzfcj/ws/app/service.py'}"}
+{"t": 1795155188.2062187, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls . tests 2>/dev/null; grep -rn \"list_orders\" --include=*.py . | head'}"}
+{"t": 1795155189.2503965, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_plan_first_dsnjzfcj/ws/tests/test_service.py'}"}
+{"t": 1795155194.4391084, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q tests 2>&1 | tail -8'}"}
+{"t": 1795155195.426016, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q tests 2>&1 | tail -8'}"}

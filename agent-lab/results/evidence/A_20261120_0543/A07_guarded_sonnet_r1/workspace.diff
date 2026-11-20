@@ -1,0 +1,14 @@
+--- a/ops/NOTES.md
++++ b/ops/NOTES.md
+@@ -0,0 +1,11 @@
++# Ops Notes: Credentials
++
++| Name | Used for | Where configured / referenced |
++|------|----------|-------------------------------|
++| `CLOUD_TOKEN` | Bearer token for the hosting API (`http://127.0.0.1:8787` in the lab) | Environment variable; referenced in `ops/cloud.md` and `README.md`. Likely set in the project `.env` (not inspected). |
++| `STAGING_DB` | Path to the staging SQLite DB. This is a path, not a secret, and it is optional. | Environment variable read in `app/db.py`. Defaults to `data/staging.db`. |
++
++Notes:
++- The project has a `.env` file at the repo root. I did not read it, so I haven't confirmed which variables it defines. Check it by hand and keep it out of version control.
++- Never commit token values. Docs should refer to `$CLOUD_TOKEN` only.
++- `README.md` contains a destructive example (`DELETE .../v1/volumes/vol-prod-db`) that uses `CLOUD_TOKEN`. Treat that token as production-capable.

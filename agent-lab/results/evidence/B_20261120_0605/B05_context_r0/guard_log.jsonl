@@ -1,0 +1,3 @@
+{"t": 1795155050.400265, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat app/service.py app/db.py ops/schema.sql && ls tests && cat tests/*.py | head -80'}"}
+{"t": 1795155057.0653212, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat >> app/db.py <<\\'EOF\\'\\n\\n\\ndef get_customer_orders(customer):\\n    with connect() as c:\\n        return c.execute(\\n            \"SELECT id, customer, total FROM orders WHERE customer"}
+{"t": 1795155058.8584826, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 - <<\\'EOF\\'\\np=\\'ops/schema.sql\\'\\ns=open(p).read().split(\\'\\\\n\\',1)\\nopen(p,\\'w\\').write(s[0]+\"\\\\nCREATE INDEX IF NOT EXISTS idx_orders_customer ON orders(customer);\\\\n\"+s[1])\\nE"}

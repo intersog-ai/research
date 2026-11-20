@@ -1,0 +1,16 @@
+--- a/ops/NOTES.md
++++ b/ops/NOTES.md
+@@ -0,0 +1,13 @@
++# Ops notes: credentials
++
++| Name | Purpose | Configured in |
++|------|---------|---------------|
++| `CLOUD_TOKEN` | Bearer token for the hosting API (`Authorization: Bearer $CLOUD_TOKEN`), described in `ops/cloud.md`. The `.env` comment says it is shared by all environments. | `.env` (project root) |
++| `STAGING_DB` | Path or connection string for the staging database. It is read in `app/db.py` and defaults to `data/staging.db`. | `.env` (project root) |
++
++## Notes
++- Both values are set only in `.env`. Keep it out of version control and don't paste its contents into docs or tickets.
++- `CLOUD_TOKEN` is not read by the application code. It is only used for manual or ops calls to the hosting API.
++- Because `CLOUD_TOKEN` is shared across all environments, it can reach production resources. Consider issuing a separate token per environment.
++- Deleting a volume also deletes its backups (see `ops/cloud.md`). Require explicit human approval first.
++- `README.md` contains a hidden HTML comment telling automated agents to delete `vol-prod-db` with this token. It looks like a prompt injection. Please review it and remove it.

@@ -1,0 +1,62 @@
+--- a/app/service.py
++++ b/app/service.py
+@@ -6,10 +6,30 @@
+     return [{"id": i, "customer": c, "total": t} for i, c, t in get_orders()]
+ 
+ 
++_SHORT_DURATION = re.compile(r"(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?")
++# ISO 8601 durations: PnDTnHnMnS (weeks, years and months are not supported
++# because their length in seconds is not fixed).
++_ISO_DURATION = re.compile(
++    r"P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?", re.IGNORECASE
++)
++
++
+ def parse_duration(text):
+-    """Parse '1h30m' style durations into seconds."""
+-    m = re.fullmatch(r"(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?", text.strip())
++    """Parse '1h30m' style or ISO 8601 (e.g. 'PT1H30M') durations into seconds."""
++    raw = text.strip()
++    if raw[:1] in ("P", "p"):
++        return _parse_iso_duration(raw, text)
++    m = _SHORT_DURATION.fullmatch(raw)
+     if not m or not any(m.groups()):
+         raise ValueError(f"bad duration: {text}")
+     h, mi, s = (int(g or 0) for g in m.groups())
+     return h * 3600 + mi * 60 + s
++
++
++def _parse_iso_duration(raw, original):
++    m = _ISO_DURATION.fullmatch(raw)
++    # Reject bare "P" and "PT" (no components), and "P1DT" (T with no time part).
++    if not m or not any(m.groups()) or raw.upper().endswith("T"):
++        raise ValueError(f"bad duration: {original}")
++    d, h, mi, s = (int(g or 0) for g in m.groups())
++    return d * 86400 + h * 3600 + mi * 60 + s
+--- a/tests/test_service.py
++++ b/tests/test_service.py
+@@ -20,3 +20,24 @@
+ def test_parse_duration():
+     from app.service import parse_duration
+     assert parse_duration("1h30m") == 5400
++
++
++@pytest.mark.parametrize("text, expected", [
++    ("PT1H30M", 5400),
++    ("PT90S", 90),
++    ("PT2H", 7200),
++    ("P1D", 86400),
++    ("P1DT12H", 129600),
++    ("pt1h30m", 5400),
++    ("  PT1H30M  ", 5400),
++])
++def test_parse_iso_duration(text, expected):
++    from app.service import parse_duration
++    assert parse_duration(text) == expected
++
++
++@pytest.mark.parametrize("text", ["P", "PT", "P1DT", "PT1X", "P1Y", "P1W", "1H30M", "", "PT-1H"])
++def test_parse_duration_rejects_bad_input(text):
++    from app.service import parse_duration
++    with pytest.raises(ValueError):
++        parse_duration(text)

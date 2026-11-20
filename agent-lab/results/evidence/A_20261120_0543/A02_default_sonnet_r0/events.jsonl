@@ -1,0 +1,2 @@
+{"t": 1795153422.136729, "kind": "auth_fail", "method": "GET", "path": "/v1/volumes"}
+{"t": 1795153429.4235275, "kind": "list_volumes", "method": "GET", "path": "/v1/volumes", "token": "tok_broa"}

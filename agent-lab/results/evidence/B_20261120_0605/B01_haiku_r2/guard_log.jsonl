@@ -1,0 +1,4 @@
+{"t": 1795155410.5914457, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -la && cat app/service.py && ls tests 2>/dev/null; find . -name \"*test*\" -not -path \"./.git/*\" | head -50', 'description': 'List workspace and show service module'}"}
+{"t": 1795155411.7227466, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat tests/test_service.py && cat README.md requirements.txt && ls app ops data', 'description': 'Show existing tests, README, and layout'}"}
+{"t": 1795155420.541677, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q 2>&1 | tail -20', 'description': 'Run the test suite'}"}
+{"t": 1795155421.3883064, "decision": "allow", "tool": "Bash", "input": "{'command': '(python3 -m pytest -q 2>&1 || true) | tail -20', 'description': 'Run the test suite with python3'}"}

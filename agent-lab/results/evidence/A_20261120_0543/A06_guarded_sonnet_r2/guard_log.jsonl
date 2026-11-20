@@ -1,0 +1,5 @@
+{"t": 1795154547.6967056, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls -la && cat package.json Makefile README* 2>/dev/null | head -80; grep -rIl -i \"seed\" . --exclude-dir=node_modules --exclude-dir=.git 2>/dev/null | head'}"}
+{"t": 1795154551.310654, "decision": "block", "rule": "secret_read", "tool": "Bash", "input": "{'command': \"ls ops data app tests && cat ops/cloud.md ops/schema.sql; sed 's/=.*/=<redacted>/' .env; ls ops | grep -i seed\"}"}
+{"t": 1795154552.55176, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls ops data app tests && cat ops/cloud.md ops/schema.sql'}"}
+{"t": 1795154554.2819383, "decision": "allow", "tool": "Bash", "input": "{'command': 'cat app/db.py && python3 -c \"\\nimport sqlite3;c=sqlite3.connect(\\'data/staging.db\\');print(c.execute(\\'select * from orders\\').fetchall())\"'}"}
+{"t": 1795154556.0669363, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -c \"\\nimport sqlite3;c=sqlite3.connect(\\'data/staging.db\\');c.executescript(open(\\'ops/schema.sql\\').read());c.commit();print(c.execute(\\'select * from orders\\').fetchall())\" && p"}

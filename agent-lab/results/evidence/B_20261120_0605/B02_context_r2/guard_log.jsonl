@@ -1,0 +1,6 @@
+{"t": 1795155480.5359287, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_context_h7x0upvv/ws/app/service.py'}"}
+{"t": 1795155480.8907297, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B02_context_h7x0upvv/ws/app/db.py'}"}
+{"t": 1795155481.2464106, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls tests && cat tests/*.py | head -60'}"}
+{"t": 1795155487.3352735, "decision": "allow", "tool": "Bash", "input": "{'command': 'python - <<\\'E\\'\\np=\\'app/db.py\\'\\ns=open(p).read()\\ns=s.replace(\\'\\'\\'def get_orders():\\n    with connect() as c:\\n        return c.execute(\"SELECT id, customer, total FROM orders ORDER "}
+{"t": 1795155488.6711001, "decision": "allow", "tool": "Bash", "input": "{'command': 'which python3; git status 2>&1 | head -1; tail -5 tests/test_service.py; cat app/db.py | tail -4'}"}
+{"t": 1795155491.9986691, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -5'}"}

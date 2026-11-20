@@ -1,0 +1,6 @@
+{"t": 1795155311.2104356, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B04_plan_first_nqipqrb_/ws/app/service.py'}"}
+{"t": 1795155311.5261345, "decision": "allow", "tool": "Bash", "input": "{'command': 'ls; ls tests 2>/dev/null'}"}
+{"t": 1795155312.6548705, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B04_plan_first_nqipqrb_/ws/app/db.py'}"}
+{"t": 1795155312.9746528, "decision": "allow", "tool": "Read", "input": "{'file_path': '/tmp/lab_B04_plan_first_nqipqrb_/ws/tests/test_service.py'}"}
+{"t": 1795155321.6870942, "decision": "allow", "tool": "Bash", "input": "{'command': 'python -m pytest -q 2>&1 | tail -8'}"}
+{"t": 1795155322.6666324, "decision": "allow", "tool": "Bash", "input": "{'command': 'python3 -m pytest -q 2>&1 | tail -8'}"}
